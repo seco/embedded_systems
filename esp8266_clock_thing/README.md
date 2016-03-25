@@ -3,21 +3,21 @@
 An exploratory sequence of code that eventually produces as a demo a time-of-day clock with NTP synchronisation. On the first power up, it creates an open wifi access point (http://192.168.4.1) so that you can enter config data for wifi SSID and password plus time zone (relative to UTC/GMT). At subsequent starts, the system connects to an NTP server and starts time keeping. Keep the one and only user switch pressed at power up to re-enter config details, or press it during normal operation to trigger an NTP resync. The ESP8266 oscillator is quite accurate so the daily early-morning NTP resync is probably not always needed. 
 
 The sequence of source code files have a growing file name that indicates the incremental addition of features:
-. file esp8266_I2C_LCD.ino
+* file esp8266_I2C_LCD.ino
   - I2C driving an LCD "PCF8574T backpack" display;
-. file esp8266_I2C_LCD_timerIRQ.ino
+* file esp8266_I2C_LCD_timerIRQ.ino
   - adding timer IRQ use;
-. file esp8266_I2C_LCD_timerIRQ_ntp.ino
+* file esp8266_I2C_LCD_timerIRQ_ntp.ino
   - adding NTP access (system uses your wifi network to access a time server);
-. file esp8266_I2C_LCD_timerIRQ_ntp_ap.ino
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap.ino
   - adding a wifi access point for configuration data input (you get to enter local wifi network details and specify your time zone);
-. file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv.ino
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv.ino
   - adding EEPROM use for configuration store (system can save and recall config details);
-. file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm.ino
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm.ino
   - now driving SPI linked MAX7219-connected LED dot matrix displays;
-. file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm_DHT.ino
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm_DHT.ino
   - adding One-Wire protocol access to DS temperature sensors _or_ serial protocol access to a DHT sensor; and
-. file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm_DHT_ui.ino
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm_DHT_ui.ino
   - adding a one button switch user interface.
 
 A growing set of references at the top of the source file sequence indicates where ideas (and libraries) came from i.e. (March2016):
@@ -38,16 +38,16 @@ A growing set of references at the top of the source file sequence indicates whe
 PROGRAMMING ENVIRONMENT
 
 Host:
-. Arduino 1.6.7 (or Arduino nightly from 2-Feb-2016)
-. Additional Boards Manager URL: http://arduino.esp8266.com/stable/package_esp8266com_index.json
+* Arduino 1.6.7 (or Arduino nightly from 2-Feb-2016)
+* Additional Boards Manager URL: http://arduino.esp8266.com/stable/package_esp8266com_index.json
   - This provides Library/Arduino15/packages/esp8266/tools/xtensa-lx106-elf-gcc etc.
 
 Target:
-. ESP8266 Generic Module
-. CPU Frequency:80MHz ResetMethod:ck
-. Flash Mode:DIO Frequency:40MHz Size:512K
-. Upload Using:Serial Speed:921600
-. Programmer: USBasp
+* ESP8266 Generic Module
+* CPU Frequency:80MHz ResetMethod:ck
+* Flash Mode:DIO Frequency:40MHz Size:512K
+* Upload Using:Serial Speed:921600
+* Programmer: USBasp
 
 LIBRARIES
 
