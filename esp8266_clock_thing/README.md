@@ -5,8 +5,8 @@ An exploratory sequence of code that eventually produces as a demo a time-of-day
 The sequence of source code files have a growing file name that indicates the incremental addition of features:
 * file esp8266_I2C_LCD.ino
   - I2C driving an LCD "PCF8574T backpack" display;
-  - To simplify use of the display on the I2C "LCD backpack", we take files from NewliquidCrystal_1.3.4.zip (https://bitbucket.org/fmalpartida/new-liquidcrystal/downloads) to _replace_ the default library LiquidCrystal (on OS-X, check for a location such as /Applications/Arduino.app/Contents/Java/libraries/LiquidCrystal);
-  - NOTE: the esp8266 compiler chain fails on SR (shift register) and Software protocol variants of NewliquidCrystal so just remove or rename files matching {*_SR*, SI2C*, *_SI2C*}. In sh:<br>&nbsp; &nbsp;  cd LiquidCrystal <br>&nbsp; &nbsp; for x in <strong>&#42;_SR* SI2C* &#42;_SI2C* </strong> ; do echo $x ; mv ${x} ${x}_disabled ; done
+  - To simplify use of the display on the I2C "LCD backpack", we take files from F. Malpartida's NewliquidCrystal_1.3.4.zip (https://bitbucket.org/fmalpartida/new-liquidcrystal/downloads) to _replace_ the default library LiquidCrystal (on OS-X, check for a location such as /Applications/Arduino.app/Contents/Java/libraries/LiquidCrystal);
+  - NOTE: the esp8266 compiler chain fails on SR (shift register) and Software protocol variants of NewliquidCrystal so just remove or rename files matching {&#42;_SR*, SI2C*, &#42;_SI2C*}. In sh:<br>&nbsp; &nbsp;  cd LiquidCrystal <br>&nbsp; &nbsp; for x in <strong>&#42;_SR* SI2C* &#42;_SI2C* </strong> ; do echo $x ; mv ${x} ${x}_disabled ; done
 * file esp8266_I2C_LCD_timerIRQ.ino
   - adding timer IRQ use;
   - Note: call os_timer_setfn() before os_timer_arm();
