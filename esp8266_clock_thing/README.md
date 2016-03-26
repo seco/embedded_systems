@@ -6,11 +6,9 @@ The sequence of source code files have a growing file name that indicates the in
 * file esp8266_I2C_LCD.ino
   - I2C driving an LCD "PCF8574T backpack" display;
   - To simplify use of the display on the I2C "LCD backpack", we take files from NewliquidCrystal_1.3.4.zip (https://bitbucket.org/fmalpartida/new-liquidcrystal/downloads) to _replace_ the default library LiquidCrystal (on OS-X, check for a location such as /Applications/Arduino.app/Contents/Java/libraries/LiquidCrystal);
-  - NOTE: the esp8266 compiler chain fails on SR (shift register) and Software protocol variants of NewliquidCrystal so just remove or rename files matching {*_SR*, SI2C*, *_SI2C*}. In sh:  for x in *_SR* SI2C* *_SI2C* ; do echo $x ; mv ${x} ${x}_disabled ; done
-  - See http://tronixstuff.com/2014/09/24/tutorial-serial-pcf8574-backpacks-hd44780-compatible-lcd-modules-arduino/ for informative code example (from which some font data is taken);
+  - NOTE: the esp8266 compiler chain fails on SR (shift register) and Software protocol variants of NewliquidCrystal so just remove or rename files matching {*_SR*, SI2C*, *_SI2C*}. In sh:<br>  for x in *_SR* SI2C* *_SI2C* ; do echo $x ; mv ${x} ${x}_disabled ; done
 * file esp8266_I2C_LCD_timerIRQ.ino
   - adding timer IRQ use;
-  - See http://www.switchdoc.com/2015/10/iot-esp8266-timer-tutorial-arduino-ide/
   - Note: call os_timer_setfn() before os_timer_arm();
 * file esp8266_I2C_LCD_timerIRQ_ntp.ino
   - adding NTP access (system uses your wifi network to access a time server);
