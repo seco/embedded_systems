@@ -59,6 +59,7 @@ The build produced the following library information. Note that
 /Users/phillip/Library/Arduino15/packages/esp8266 are provided in the
 ESP8266 tools and /Users/phillip/Documents/Arduino/libraries are local.
 
+<pre>
 Multiple libraries were found for "OneWire.h"
  Used: /Users/phillip/Documents/Arduino/libraries/OneWire
  Not used: /Users/phillip/Library/Arduino15/packages/esp8266/hardware/esp8266/2.0.0/libraries/OneWire
@@ -73,5 +74,5 @@ Using library ESP8266WebServer at version 1.0 in folder: /Users/phillip/Library/
 
 Sketch uses 258,028 bytes (59%) of program storage space. Maximum is 434,160 bytes.
 Global variables use 39,326 bytes (48%) of dynamic memory, leaving 42,594 bytes for local variables. Maximum is 81,920 bytes.
-
+</pre>
 ---------------------------------------------------------------------------
