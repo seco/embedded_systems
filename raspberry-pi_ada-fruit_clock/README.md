@@ -2,7 +2,7 @@
 
 * rpaf_clock.py
   - Provides an NTP synchronised clock based on a RaspberryPi Zero/A/A+/B/B+ driving an adaFruit https://www.adafruit.com/products/1268 LED display (the LED module uses a HT16K33 controller IC described at https://www.adafruit.com/datasheets/ht16K33v110.pdf).
-  - The clock is NTP locked because the underlying OS runs time synchronisation tasks such as ntpd).
+  - The clock is NTP locked because the underlying OS runs time synchronisation tasks (such as ntpd).
   - This program is derived from sample code ex_7segment_clock.py as supplied by AdaFruit in the Adafruit-Raspberry-Pi-Python-Code-master.zip archive.
   - Modifications:
     - replaced some constant numbers in the sample code by variable names chosen to clarify how to address individual digits and access individual LEDs (such as the colon) that adorn the 7-segment display;
