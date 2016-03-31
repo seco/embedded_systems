@@ -1,6 +1,6 @@
 # esp8266_clock_thing
 
-An exploratory sequence of code that eventually produces as a demo a time-of-day clock with NTP synchronisation. These files grew from an code sample set for an embedded systems workshop that used only Atmel AVR processors.
+An exploratory sequence of code that eventually produces as a demo a time-of-day clock with NTP synchronisation. These files grew from a code sample set for an embedded systems workshop that changed from Atmel AVR processors to the ESP8266 platform.
 
 On the first power up, the system creates an open wifi access point (http://192.168.4.1) so that you can enter config data for wifi SSID and password plus time zone (relative to UTC/GMT). At subsequent starts, the system connects to an NTP server and starts time keeping. Keep the one and only user switch pressed at power up to re-enter config details, or press it during normal operation to trigger an NTP resync. The ESP8266 oscillator is quite accurate so the daily early-morning NTP resync is probably not always needed. 
 
