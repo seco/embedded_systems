@@ -8,3 +8,7 @@
   - A fork of the Atmel AVR control program for the open energy monitor.
   - This minimalist system has been frozen as I want to change the hardware.
   - Developed for a home energy monitoring system.
+
+* raspberry-pi_ada-fruit_clock
+  - A minimalist clock using a Raspberry Pi Zero and AdaFruit display.
+  - Developed from the idea of just how simple can an off-the-shelf NTP clock be...
