@@ -4,7 +4,7 @@ An exploratory sequence of code that eventually produces as a demo a time-of-day
 
 On the first power up, the system creates an open wifi access point (http://192.168.4.1) so that you can enter config data for wifi SSID and password plus time zone (relative to UTC/GMT). At subsequent starts, the system connects to an NTP server and starts time keeping. Keep the one and only user switch pressed at power up to re-enter config details, or press it during normal operation to trigger an NTP resync. The ESP8266 oscillator is quite accurate so the daily early-morning NTP resync is probably not always needed. 
 
-The sequence of source code files have a growing file name that indicates the incremental addition of features:
+The sequence of source code files (in src/) have a growing file name that indicates the incremental addition of features:
 * file esp8266_I2C_LCD.ino
   - I2C driving an LCD "PCF8574T backpack" display;
   - To simplify use of the display on the I2C "LCD backpack", we take files from F. Malpartida's NewliquidCrystal_1.3.4.zip (https://bitbucket.org/fmalpartida/new-liquidcrystal/downloads) to _replace_ the default library LiquidCrystal (on OS-X, check for a location such as /Applications/Arduino.app/Contents/Java/libraries/LiquidCrystal);
@@ -39,6 +39,8 @@ A growing set of references at the top of the source file sequence indicates whe
  * 10 Add timezone data to eeprom storage (now holds 2 strings and an int), and check if theButton is set at power up to allow user reset (enter local access point mode and input WiFi SSID/password and timezone data)
  * 11 If theButton input is set during normal operation, resynchronise with the ntp time source (hey, a user interface!)
 
+Selected library files are provided in libs/.
+
 ---------------------------------------------------------------------------
 
 PROGRAMMING ENVIRONMENT
@@ -57,24 +59,25 @@ Target:
 
 LIBRARIES
 
-The build produced the following library information. Note that
-/Users/phillip/Library/Arduino15/packages/esp8266 are provided in the
-ESP8266 tools and /Users/phillip/Documents/Arduino/libraries are local.
+The default ESP8266 libraries are used, except for
+ - LiquidCrystal in folder: /Users/phillip/Documents/Arduino/libraries/LiquidCrystal (this is really newLiquidCrystal by F Malpartida, referenced above)
+ - DallasTemperature at version 3.7.6 in folder: /Users/phillip/Documents/Arduino/libraries/DallasTemperature
+ - LedControl at version 1.0.6 in folder: /Users/phillip/Documents/Arduino/libraries/LedControl
 
+The final messages in a build include the following library information:
 <pre>
-Multiple libraries were found for "OneWire.h"
- Used: /Users/phillip/Documents/Arduino/libraries/OneWire
- Not used: /Users/phillip/Library/Arduino15/packages/esp8266/hardware/esp8266/2.0.0/libraries/OneWire
 Using library ESP8266WiFi at version 1.0 in folder: /Users/phillip/Library/Arduino15/packages/esp8266/hardware/esp8266/2.0.0/libraries/ESP8266WiFi 
 Using library Wire at version 1.0 in folder: /Users/phillip/Library/Arduino15/packages/esp8266/hardware/esp8266/2.0.0/libraries/Wire 
 Using library LiquidCrystal in folder: /Users/phillip/Documents/Arduino/libraries/LiquidCrystal (legacy)
 Using library EEPROM at version 1.0 in folder: /Users/phillip/Library/Arduino15/packages/esp8266/hardware/esp8266/2.0.0/libraries/EEPROM 
-Using library OneWire at version 2.3.2 in folder: /Users/phillip/Documents/Arduino/libraries/OneWire 
+Using library OneWire in folder: /Users/phillip/Library/Arduino15/packages/esp8266/hardware/esp8266/2.0.0/libraries/OneWire (legacy)
 Using library DallasTemperature at version 3.7.6 in folder: /Users/phillip/Documents/Arduino/libraries/DallasTemperature 
 Using library LedControl at version 1.0.6 in folder: /Users/phillip/Documents/Arduino/libraries/LedControl 
 Using library ESP8266WebServer at version 1.0 in folder: /Users/phillip/Library/Arduino15/packages/esp8266/hardware/esp8266/2.0.0/libraries/ESP8266WebServer 
 
-Sketch uses 258,028 bytes (59%) of program storage space. Maximum is 434,160 bytes.
+Sketch uses 258,012 bytes (59%) of program storage space. Maximum is 434,160 bytes.
 Global variables use 39,326 bytes (48%) of dynamic memory, leaving 42,594 bytes for local variables. Maximum is 81,920 bytes.
+warning: serialport_set_baudrate: baud rate 921600 may not work
+Uploading 262160 bytes from /var/folders/5l/b10qh4yn70jfsyh_967qnzn80000z8/T/build38bc27e8901f817645a0f38814bcfa50.tmp/esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm_DHT_ui.ino.bin to flash at 0x00000000
 </pre>
 ---------------------------------------------------------------------------
