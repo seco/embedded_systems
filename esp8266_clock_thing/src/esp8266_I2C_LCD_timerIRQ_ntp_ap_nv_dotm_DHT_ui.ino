@@ -236,13 +236,17 @@ DallasTemperature DS18B20(&ds);
 char latest_ds_temperature[nCharsTemp]; 
 char* get_temperature() { return latest_ds_temperature; }
 
-// Note: this function assumes only one sensor in operation (Index==0)
+// Notes:
+//   - assumes only one sensor in operation (Index==0)
+//   - applies a hard -ve limit so result is >-100
 void update_ds_temperature()
 {
   DS18B20.requestTemperatures();
   delay(0);
   float temp = DS18B20.getTempCByIndex(0);
   delay(0);
+
+  if (temp <= -100) temp = -99.99;
 
   String x = String( temp );
   strncpy( latest_ds_temperature, x.c_str(), nCharsTemp-1 );
@@ -619,8 +623,8 @@ bool retrieve_config_OK()
   clear_lcd_row(1); lcd.print(String('(') + ssid_Cstr + ')');
   clear_lcd_row(2); lcd.print(String('(') + pass_Cstr + ')');
   clear_lcd_row(3); lcd.print("(UTC/GMT ");
-  if (the_time_zone>0) lcd.print('+');
-  lcd.print(the_time_zone);
+  if (the_time_zone>0)  lcd.print('+');
+  if (the_time_zone!=0) lcd.print(the_time_zone);
   lcd.print(')');
   delay(5000);
   configuration_is_OK = true;
@@ -1049,8 +1053,8 @@ void setup()
     {
       clear_lcd_row(0);
       lcd.print("Lake Placid: UTC");
-      if ( the_time_zone>0 ) lcd.print('+');
-      lcd.print(the_time_zone);
+      if (the_time_zone>0)  lcd.print('+');
+      if (the_time_zone!=0) lcd.print(the_time_zone);
       clear_lcd_row(1);         // move to start of 2nd line
       display_time( time_str );
       setup_networking_WIFIclient();
