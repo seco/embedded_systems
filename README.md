@@ -14,3 +14,7 @@ This work and play relates to some small personal projects and also my teaching 
 * raspberry-pi_ada-fruit_clock
   - A minimalist clock using a Raspberry Pi Zero and AdaFruit display.
   - Developed from the idea of just how simple can an off-the-shelf NTP clock be...
+
+* relayr_experiments
+  - Provides sample mqtt loggers using the relayr.io service.
+  - Examples in python and C/C++ are provided.
