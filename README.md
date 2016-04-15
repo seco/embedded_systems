@@ -18,3 +18,6 @@ This work and play relates to some small personal projects and also my teaching 
 * relayr_experiments
   - Provides sample mqtt loggers using the relayr.io service.
   - Examples in python and C/C++ are provided.
+
+* workshop
+  - Materials from a 2015 introductory microcontroller workshop.
