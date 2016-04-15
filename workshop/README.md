@@ -1,8 +1,6 @@
 # workshop
 
-These materials were used in an introduction to microcontroller interfacing
-and programming workshop held in 2015, using Atmel AVR microcontrollers in the
-form of Arduino Pro Mini boards.
+These materials were used in an introduction to microcontroller interfacing and programming workshop held in 2015 in Cairns, using Atmel AVR microcontrollers in the form of Arduino Pro Mini boards.
 
 * Microcontroller_Notes/
    - Introduces the hardware and software used.
@@ -27,4 +25,6 @@ form of Arduino Pro Mini boards.
    - Data_Sheets_AVR_and_LCD
    - Drivers_for_USB-UART_adapters
 
-* http://arduino.cc is, of course, the original site for IDE, references, etc.
+* Arduino Tools:
+   - Visit http://arduino.cc for pre-built versions of the compiler tools bundled with an IDE, downloader, etc. and featuring a well organised library import and contribution system (and also a target CPU extension system). 
+   - See http://www.arduino.cc/en/Guide/HomePage for getting started.
