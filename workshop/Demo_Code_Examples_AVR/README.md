@@ -18,7 +18,7 @@
    - Extend the above example to drive 3 LEDS for a 3 bit counter, and now add an input switch so that the counter direction can be chosen.
 
 * counter_b3_sw_directPB/
-   - Make the output port update more efficient by directly manipulating the bits with a single statement (instead of multiple bit inspect and digitalWrite() calls.
+   - Make the output port update more efficient by directly manipulating the bits with a single statement (instead of multiple bit inspect and digitalWrite() calls).
 
 * detect_pulse_adc/
    - Configure the ADC convertor to read a voltage from a light transmission sensor which contains a light source (LED) and light receiver that senses small changes in light transmission through a finger etc. due to the blood ressure pulse in a heartbeat.
@@ -32,7 +32,7 @@
    - Shows ADC data being read, averaged, and displayed on the LCD.
 
 * echo_audio_bar_display/
-   - As above but now a bar graph is also gebnerated for the LCD.
+   - As above but now a bar graph is also generated for the LCD.
 
 * LCD_Clock/
    - Uses MsTimer2.zip (time keeping via timer2 overflow interrupts) and NewliquidCrystal_1.3.4.zip (LCD driver).
