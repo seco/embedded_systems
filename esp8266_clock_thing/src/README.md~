@@ -1,0 +1,30 @@
+# src
+
+* file esp8266_I2C_LCD.ino
+  - I2C driving an LCD "PCF8574T backpack" display;
+  - To simplify use of the display on the I2C "LCD backpack", we take files from F. Malpartida's NewliquidCrystal_1.3.4.zip (https://bitbucket.org/fmalpartida/new-liquidcrystal/downloads) to _replace_ the default library LiquidCrystal (on OS-X, check for a location such as /Applications/Arduino.app/Contents/Java/libraries/LiquidCrystal);
+  - NOTE: the esp8266 compiler chain fails on SR (shift register) and Software protocol variants of NewliquidCrystal so just remove or rename files matching {&#42;_SR*, SI2C*, &#42;_SI2C*}. In sh:<br>&nbsp; &nbsp;  cd LiquidCrystal <br>&nbsp; &nbsp; for x in <strong>&#42;_SR* SI2C* &#42;_SI2C* </strong> ; do echo $x ; mv ${x} ${x}_disabled ; done
+
+* file esp8266_I2C_LCD_timerIRQ.ino
+  - adding timer IRQ use;
+  - Note: call os_timer_setfn() before os_timer_arm();
+
+* file esp8266_I2C_LCD_timerIRQ_ntp.ino
+  - adding NTP access (system uses your wifi network to access a time server);
+  - See the NTPClient-Arduino example code;
+
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap.ino
+  - adding a wifi access point for configuration data input (you get to enter local wifi network details and specify your time zone);
+
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv.ino
+  - adding EEPROM use for configuration store (system can save and recall config details);
+
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm.ino
+  - now driving SPI linked MAX7219-connected LED dot matrix displays;
+
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm_DHT.ino
+  - adding One-Wire protocol access to DS temperature sensors _or_ serial protocol access to a DHT sensor; and
+
+* file esp8266_I2C_LCD_timerIRQ_ntp_ap_nv_dotm_DHT_ui.ino
+  - adding a one button switch user interface.
+
