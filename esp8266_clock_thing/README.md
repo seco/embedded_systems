@@ -5,6 +5,9 @@ An exploratory sequence of programs eventually produced a time-of-day clock demo
 * Phillip_Clock_Thing.ino
    - On the first power up, the system creates an open wifi access point (http://192.168.4.1) so that you can enter config data for WiFi SSID and password plus time zone (relative to UTC/GMT). At subsequent starts, the system connects to an NTP server and starts time keeping. Keep the one and only user switch pressed at power up to re-enter config details, or press it during normal operation to trigger an NTP resync. The ESP8266 oscillator is quite accurate so the daily early-morning NTP resync is probably not always needed. 
 
+* Phillip_Clock_Thing2.ino
+   - Slightly cleaner code, the analogue input is used for a summer time switch, and nodemcu pin out information added to the comments.
+
 * src/
    - The current clock resulted from the sequence of source code files (in src/).
 
